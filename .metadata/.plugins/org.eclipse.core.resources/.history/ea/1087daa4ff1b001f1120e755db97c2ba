@@ -1,0 +1,68 @@
+package Shop;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JButton;
+
+public class client extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					client frame = new client();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public client() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 1005, 549);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBackground(Color.GRAY);  // Set background color to gray
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        JPanel panel = new JPanel();
+        panel.setBounds(0, 0, 991, 512);
+        panel.setBackground(Color.GRAY);  // Set background color to gray
+        contentPane.add(panel);
+        panel.setLayout(null);
+        
+        JPanel panel_1 = new JPanel();
+        panel_1.setBackground(Color.GRAY);  // Set background color to gray
+        panel_1.setBounds(0, 0, 991, 45);
+        panel.add(panel_1);
+        panel_1.setLayout(null);
+        
+        JButton btnNewButton = new JButton("Chăm sóc khách hàng");
+        btnNewButton.setBackground(new Color(255, 255, 255));
+        btnNewButton.setBounds(648, 10, 143, 21);
+        panel_1.add(btnNewButton);
+        
+        JButton btnNewButton_1 = new JButton("Kiểm tra đơn hàng");
+        btnNewButton_1.setBounds(801, 10, 151, 21);
+        panel_1.add(btnNewButton_1);
+    }
+}

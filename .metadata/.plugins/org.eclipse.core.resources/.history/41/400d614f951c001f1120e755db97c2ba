@@ -1,0 +1,239 @@
+package Shop;
+
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.Timer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JScrollPane;
+
+
+public class client extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    private JTextField textField;
+    private ImageIcon[] images;
+    private int currentImageIndex = 0;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    client frame = new client();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+	/**
+	 * Create the frame.
+	 */
+    public client() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 1093, 1001);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+        JPanel panel = new JPanel();
+        panel.setBounds(0, 0, 993, 725);
+        contentPane.add(panel);
+        panel.setLayout(null);
+
+        images = new ImageIcon[]{
+            new ImageIcon("C:\\Users\\NITRO 5\\Downloads\\ZA_2324KitLaunch_411698065523971_large (1).jpg"),
+            new ImageIcon("C:\\Users\\NITRO 5\\Downloads\\giay-manchester-united-adidas-stretford-1968-shoes-s79508-bnwt-box-20211030054430-665309 (1).jpg")
+        };
+
+        JLabel lblNewLabel_8 = new JLabel("");
+        lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNewLabel_8.setIcon(images[currentImageIndex]);
+        lblNewLabel_8.setBounds(254, 133, 737, 206);
+        panel.add(lblNewLabel_8);
+
+        // Timer to switch images
+        Timer timer = new Timer(3000, new ActionListener() { // Switch every 3 seconds
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                lblNewLabel_8.setIcon(images[currentImageIndex]);
+            }
+        });
+        timer.start();
+
+        JLabel lblNewLabel_2 = new JLabel("Man United Sports");
+        lblNewLabel_2.setForeground(new Color(255, 0, 0));
+        lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 24));
+        lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNewLabel_2.setBounds(54, 4, 234, 58);
+        panel.add(lblNewLabel_2);
+
+        JLabel lblNewLabel_3 = new JLabel("");
+        lblNewLabel_3.setBounds(611, 13, 37, 49);
+        panel.add(lblNewLabel_3);
+        lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 7));
+        lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\NITRO 5\\Downloads\\icons8-search-50 (1) (1).png"));
+
+        textField = new JTextField();
+        textField.setBounds(293, 13, 308, 45);
+        panel.add(textField);
+        textField.setColumns(10);
+
+        JLabel lblNewLabel_4 = new JLabel("");
+        lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\NITRO 5\\Downloads\\icons8-shopping-cart-52.png"));
+        lblNewLabel_4.setBounds(799, 13, 66, 49);
+        panel.add(lblNewLabel_4);
+
+        JLabel lblNewLabel_5 = new JLabel("0");
+        lblNewLabel_5.setBackground(new Color(255, 0, 0));
+        lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNewLabel_5.setForeground(new Color(0, 0, 0));
+        lblNewLabel_5.setBounds(835, 0, 50, 35);
+        panel.add(lblNewLabel_5);
+
+        JLabel lblNewLabel_6 = new JLabel("Giỏ hàng");
+        lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 17));
+        lblNewLabel_6.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblNewLabel_6.setBounds(647, 13, 142, 45);
+        panel.add(lblNewLabel_6);
+
+        JPanel panel_2 = new JPanel();
+        panel_2.setBackground(new Color(255, 0, 0));
+        panel_2.setBounds(0, 72, 991, 58);
+        panel.add(panel_2);
+        panel_2.setLayout(null);
+
+        JLabel lblNewLabel = new JLabel("DANH MỤC SẢN PHẨM");
+        lblNewLabel.setBackground(new Color(252, 47, 3));
+        lblNewLabel.setForeground(new Color(255, 255, 255));
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNewLabel.setBounds(63, 0, 191, 58);
+        panel_2.add(lblNewLabel);
+
+        JLabel lblNewLabel_1 = new JLabel("New label");
+        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\NITRO 5\\Downloads\\icons8-tiles-48.png"));
+        lblNewLabel_1.setBounds(10, 0, 52, 58);
+        panel_2.add(lblNewLabel_1);
+
+        JButton btnNewButton_4_1 = new JButton("Giày");
+        btnNewButton_4_1.setForeground(new Color(255, 255, 255));
+        btnNewButton_4_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnNewButton_4_1.setOpaque(true);
+        btnNewButton_4_1.setContentAreaFilled(true);
+        btnNewButton_4_1.setBorderPainted(false);
+        btnNewButton_4_1.setBackground(Color.RED);
+        btnNewButton_4_1.setBounds(295, 0, 118, 58);
+        panel_2.add(btnNewButton_4_1);
+
+        JButton btnNewButton_4_1_1 = new JButton("Quần áo");
+        btnNewButton_4_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnNewButton_4_1_1.setForeground(new Color(255, 255, 255));
+        btnNewButton_4_1_1.setOpaque(true);
+        btnNewButton_4_1_1.setContentAreaFilled(true);
+        btnNewButton_4_1_1.setBorderPainted(false);
+        btnNewButton_4_1_1.setBackground(Color.RED);
+        btnNewButton_4_1_1.setBounds(422, 0, 130, 58);
+        panel_2.add(btnNewButton_4_1_1);
+
+        JButton btnNewButton_4_1_2 = new JButton("Bóng đá");
+        btnNewButton_4_1_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnNewButton_4_1_2.setForeground(new Color(255, 255, 255));
+        btnNewButton_4_1_2.setOpaque(true);
+        btnNewButton_4_1_2.setContentAreaFilled(true);
+        btnNewButton_4_1_2.setBorderPainted(false);
+        btnNewButton_4_1_2.setBackground(Color.RED);
+        btnNewButton_4_1_2.setBounds(551, 0, 130, 58);
+        panel_2.add(btnNewButton_4_1_2);
+
+        JButton btnNewButton_4_1_3 = new JButton("Phụ kiện");
+        btnNewButton_4_1_3.setForeground(new Color(255, 255, 255));
+        btnNewButton_4_1_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnNewButton_4_1_3.setOpaque(true);
+        btnNewButton_4_1_3.setContentAreaFilled(true);
+        btnNewButton_4_1_3.setBorderPainted(false);
+        btnNewButton_4_1_3.setBackground(Color.RED);
+        btnNewButton_4_1_3.setBounds(684, 0, 130, 58);
+        panel_2.add(btnNewButton_4_1_3);
+
+        JLabel lblNewLabel_9 = new JLabel("HOTLINE :0905169648");
+        lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblNewLabel_9.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblNewLabel_9.setForeground(new Color(255, 255, 255));
+        lblNewLabel_9.setBounds(790, 2, 201, 58);
+        panel_2.add(lblNewLabel_9);
+
+        JLabel lblNewLabel_7 = new JLabel("");
+        lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\NITRO 5\\Downloads\\Header-Logo1500994616801 (1) (2).png"));
+        lblNewLabel_7.setBounds(21, 13, 66, 48);
+        panel.add(lblNewLabel_7);
+
+        JButton btnNewButton = new JButton("Giày");
+        btnNewButton.setForeground(new Color(255, 255, 255));
+        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnNewButton.setBounds(10, 133, 234, 49);
+        btnNewButton.setBackground(Color.RED); // Set background color to red
+        btnNewButton.setOpaque(true); // Ensure the button is opaque
+        btnNewButton.setBorderPainted(false); // Optional: remove border
+        btnNewButton.setContentAreaFilled(true); // Ensure the button fills the content area
+        panel.add(btnNewButton);
+
+        JButton btnNewButton_1 = new JButton("Phụ kiện");
+        btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnNewButton_1.setForeground(new Color(255, 255, 255));
+        btnNewButton_1.setOpaque(true);
+        btnNewButton_1.setContentAreaFilled(true);
+        btnNewButton_1.setBorderPainted(false);
+        btnNewButton_1.setBackground(Color.RED);
+        btnNewButton_1.setBounds(10, 291, 234, 49);
+        panel.add(btnNewButton_1);
+
+        JButton btnNewButton_2 = new JButton("Quần áo");
+        btnNewButton_2.setForeground(new Color(255, 255, 255));
+        btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnNewButton_2.setOpaque(true);
+        btnNewButton_2.setContentAreaFilled(true);
+        btnNewButton_2.setBorderPainted(false);
+        btnNewButton_2.setBackground(Color.RED);
+        btnNewButton_2.setBounds(10, 186, 234, 49);
+        panel.add(btnNewButton_2);
+
+        JButton btnNewButton_3 = new JButton("Bóng đá");
+        btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        btnNewButton_3.setForeground(new Color(255, 255, 255));
+        btnNewButton_3.setOpaque(true);
+        btnNewButton_3.setContentAreaFilled(true);
+        btnNewButton_3.setBorderPainted(false);
+        btnNewButton_3.setBackground(Color.RED);
+        btnNewButton_3.setBounds(10, 239, 234, 49);
+        panel.add(btnNewButton_3);
+
+        JLabel lblNewLabel_10 = new JLabel("");
+        lblNewLabel_10.setBounds(10, 368, 234, 244);
+        panel.add(lblNewLabel_10);
+
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(140, 764, 0, 37);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        contentPane.add(scrollPane);
+    }
+}
